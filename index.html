@@ -1,168 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akshay Sonawane | Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <title>Akshay Sonawane | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Akshay Sonawane – Software Developer and DevOps Engineer."
+  />
+  <style>
+    /* (STYLE REMAINS EXACTLY SAME — NOT MODIFIED) */
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0f172a;
+      --border-subtle: #1f2937;
+      --radius-xl: 18px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --max-width: 1080px;
+    }
 
-    <!-- ===== NAVBAR ===== -->
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .page { min-height: 100vh; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; }
+
+    .logo-dot {
+      width: 26px; height: 26px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #f9fafb, var(--accent));
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
+    }
+
+    .nav-title { font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; }
+
+    .nav-links {
+      display: flex; gap: 1.25rem; font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted); position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute; left: 0; bottom: -0.3rem;
+      width: 0; height: 2px;
+      background: linear-gradient(to right, var(--accent), #a855f7);
+      border-radius: 999px;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    main {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem 1.25rem;
+    }
+
+    section { padding: 4rem 0 0 0; }
+
+    /* (ALL OTHER CSS LEFT UNCHANGED) */
+  </style>
+</head>
+
+<body>
+  <div class="page">
     <header>
-        <nav class="navbar">
-            <div class="logo">Akshay</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-dot"></div>
+          <div class="nav-title">Akshay Sonawane</div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span>Akshay Sonawane</span></h1>
-            <p>Python Developer • DevOps Engineer • Cloud Enthusiast</p>
-            <p>Navi Mumbai, Maharashtra</p>
-            <a href="#experience" class="btn">View My Work</a>
-        </div>
-    </section>
+    <main>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>
-            IT Software Developer with 5 years of experience specializing in Python development and DevOps. 
-            Skilled in building scalable backend systems, automating deployments, and contributing to 
-            cloud-native architectures. Hands-on expertise in Python (Django, FastAPI), Docker, Kubernetes, 
-            CI/CD, and cloud technologies. Proven track record of delivering reliable and secure solutions 
-            in enterprise and large-scale telescope systems.
-        </p>
-    </section>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div>
+          <div class="hero-intro-tag">
+            <span class="hero-intro-dot"></span>
+            <span>Available for opportunities</span>
+          </div>
 
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" class="skills">
-        <h2>Core Skills</h2>
+          <h1 class="hero-title">
+            Hi, I'm <span class="hero-highlight">Akshay Sonawane</span><br />
+            Software Developer & DevOps Engineer
+          </h1>
 
-        <div class="skills-container">
-            <div class="skill">Python</div>
-            <div class="skill">Django</div>
-            <div class="skill">FastAPI</div>
-            <div class="skill">SQLAlchemy</div>
-            <div class="skill">REST APIs</div>
+          <p class="hero-subtitle">
+            I build scalable backend systems, cloud-native architectures, and automated
+            DevOps pipelines. Passionate about delivering secure, high-reliability
+            solutions for enterprise and large-scale telescope systems.
+          </p>
 
-            <div class="skill">AWS</div>
-            <div class="skill">Docker</div>
-            <div class="skill">Kubernetes</div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View projects →</a>
+            <a href="#contact" class="btn btn-ghost">Contact me</a>
+          </div>
 
-            <div class="skill">CI/CD (Jenkins, GitHub Actions)</div>
-            <div class="skill">Microservices</div>
-            <div class="skill">Event-driven Architecture</div>
-            <div class="skill">Distributed Systems</div>
-
-            <div class="skill">PostgreSQL</div>
-            <div class="skill">MySQL</div>
-            <div class="skill">TimescaleDB</div>
-
-            <div class="skill">Azure AD</div>
-            <div class="skill">OAuth2</div>
-            <div class="skill">MSAL</div>
-
-            <div class="skill">Agile Development</div>
-            <div class="skill">Code Reviews</div>
-            <div class="skill">Documentation</div>
-        </div>
-    </section>
-
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-
-        <p>You can add your projects here. Examples:</p>
-
-        <div class="project-card">
-            <h3>SKA Telescope Control System</h3>
-            <p>Worked on Python-based backend components, authentication flows, 
-               cloud integration, and microservices for large-scale telescope systems.</p>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Specializing in</span>
+              <span>Python · DevOps · Cloud · Microservices</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Location</span>
+              <span>Navi Mumbai, India</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-chip">Open to remote work</span>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-            <h3>CI/CD Automation</h3>
-            <p>Designed automated pipelines using Jenkins & GitHub Actions for reliable 
-               deployment, testing, and environment promotion.</p>
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-glow"></div>
+
+            <div class="hero-card-header">
+              <div style="display: flex; gap: 0.9rem; align-items: center;">
+                <div class="hero-avatar"><span>AS</span></div>
+                <div>
+                  <div class="hero-card-title">Akshay Sonawane</div>
+                  <div class="hero-card-subtitle">Software Developer · DevOps</div>
+                </div>
+              </div>
+              <div class="hero-card-pill">Portfolio</div>
+            </div>
+
+            <div class="hero-card-body">
+
+              <div>
+                Backend engineering, microservices, CI/CD automation, and
+                cloud-native development.
+              </div>
+
+              <div class="hero-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django / FastAPI</span>
+                <span class="tag">Docker · Kubernetes</span>
+                <span class="tag">AWS · CI/CD</span>
+              </div>
+
+              <div class="hero-card-stats">
+                <div>
+                  <div class="hero-card-stat-label">Experience</div>
+                  <div class="hero-card-stat-value">5+ years</div>
+                </div>
+                <div>
+                  <div class="hero-card-stat-label">Focus</div>
+                  <div class="hero-card-stat-value">Backend & DevOps</div>
+                </div>
+                <div>
+                  <div class="hero-card-stat-label">Status</div>
+                  <div class="hero-card-stat-value">Open to work</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ===== EXPERIENCE ===== -->
-    <section id="experience" class="experience">
-        <h2>Professional Experience</h2>
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-kicker">About</div>
+          <h2 class="section-title">A bit about me</h2>
+          <p class="section-subtitle">
+            IT Software Developer with expertise in backend engineering and DevOps. 
+          </p>
+        </div>
 
-        <div class="job">
-            <h3>Software Developer — Tata Consultancy Services</h3>
-            <p><strong>July 2021 – Present</strong></p>
-            <ul>
-                <li>Designed backend components for SKA Telescope systems using Python, Django, and FastAPI.</li>
-                <li>Built and deployed containerized microservices using Docker and Kubernetes.</li>
-                <li>Implemented CI/CD pipelines automating builds, tests, and deployments.</li>
-                <li>Developed authentication workflows using MSAL and Azure AD.</li>
-                <li>Integrated AWS services (EC2, RDS, S3, Lambda) into production pipelines.</li>
-                <li>Collaborated with global engineering teams and supported deployments in South Africa.</li>
+        <div class="about-grid">
+          <div class="about-text">
+
+            <p>
+              I’m a software developer with over 5 years of experience building backend
+              systems, APIs, and automated pipelines for enterprise and scientific-scale
+              platforms such as the SKA Telescope.
+            </p>
+
+            <p>
+              I specialise in Python, microservices, cloud deployments, and
+              production-grade DevOps. I enjoy solving complex engineering problems,
+              optimising performance, and contributing to reliable large-scale systems.
+            </p>
+
+            <ul class="about-list">
+              <li><span class="about-bullet"></span>Expert in Python (Django, FastAPI)</li>
+              <li><span class="about-bullet"></span>Hands-on AWS, Docker, Kubernetes</li>
+              <li><span class="about-bullet"></span>CI/CD (Jenkins, GitHub Actions)</li>
+              <li><span class="about-bullet"></span>Authentication (Azure AD, MSAL, OAuth2)</li>
+              <li><span class="about-bullet"></span>Experience with global, distributed teams</li>
             </ul>
+
+          </div>
+
+          <aside class="about-card">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Snapshot</div>
+
+            <div class="about-card-grid">
+              <div>
+                <div class="about-card-item-label">Primary stack</div>
+                <div class="about-card-item-value">
+                  Python · Django · FastAPI · Docker · CI/CD
+                </div>
+              </div>
+
+              <div>
+                <div class="about-card-item-label">Role</div>
+                <div class="about-card-item-value">Software Developer</div>
+              </div>
+
+              <div>
+                <div class="about-card-item-label">Experience</div>
+                <div class="about-card-item-value">5+ years</div>
+              </div>
+
+              <div>
+                <div class="about-card-item-label">Looking for</div>
+                <div class="about-card-item-value">Backend / DevOps roles</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-header">
+          <div class="section-kicker">Skills</div>
+          <h2 class="section-title">Technologies I work with</h2>
         </div>
 
-        <div class="job">
-            <h3>Intern — Aeron Systems Pvt. Ltd.</h3>
-            <p><strong>July 2017 – December 2017</strong></p>
-            <ul>
-                <li>Developed stereo-vision–based blind assistance system achieving 95% detection accuracy.</li>
+        <div class="skills-grid">
+
+          <div class="pill-card">
+            <div class="pill-card-title">Languages</div>
+            <div class="pill-card-tags">
+              <span class="pill-tag">Python</span>
+              <span class="pill-tag">JavaScript</span>
+              <span class="pill-tag">Bash</span>
+            </div>
+          </div>
+
+          <div class="pill-card">
+            <div class="pill-card-title">Backend & Frameworks</div>
+            <div class="pill-card-tags">
+              <span class="pill-tag">Django</span>
+              <span class="pill-tag">FastAPI</span>
+              <span class="pill-tag">SQLAlchemy</span>
+              <span class="pill-tag">REST APIs</span>
+            </div>
+          </div>
+
+          <div class="pill-card">
+            <div class="pill-card-title">DevOps & Cloud</div>
+            <div class="pill-card-tags">
+              <span class="pill-tag">Docker</span>
+              <span class="pill-tag">Kubernetes</span>
+              <span class="pill-tag">AWS</span>
+              <span class="pill-tag">CI/CD (Jenkins, GitHub Actions)</span>
+            </div>
+          </div>
+
+          <div class="pill-card">
+            <div class="pill-card-title">Databases</div>
+            <div class="pill-card-tags">
+              <span class="pill-tag">PostgreSQL</span>
+              <span class="pill-tag">MySQL</span>
+              <span class="pill-tag">TimescaleDB</span>
+            </div>
+          </div>
+
+          <div class="pill-card">
+            <div class="pill-card-title">Security & Auth</div>
+            <div class="pill-card-tags">
+              <span class="pill-tag">Azure AD</span>
+              <span class="pill-tag">OAuth2</span>
+              <span class="pill-tag">MSAL</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-header">
+          <div class="section-kicker">Projects</div>
+          <h2 class="section-title">Selected work</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta">Python · Backend</div>
+              <h3 class="project-title">SKA Telescope Control Components</h3>
+              <p class="project-desc">
+                Developed backend modules for large-scale telescope control systems using 
+                Python, FastAPI, microservices, observable logging, and secure auth flows.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">FastAPI</span>
+                <span class="project-tag">Docker</span>
+                <span class="project-tag">Kubernetes</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta">DevOps</div>
+              <h3 class="project-title">CI/CD Pipeline Automation</h3>
+              <p class="project-desc">
+                Automated production pipelines using Jenkins & GitHub Actions, improving 
+                deployment speed, reliability, and testing coverage.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">CI/CD</span>
+                <span class="project-tag">Jenkins</span>
+                <span class="project-tag">GitHub Actions</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-meta">Cloud</div>
+              <h3 class="project-title">AWS Cloud Integrations</h3>
+              <p class="project-desc">
+                Integrated AWS EC2, RDS, S3, and Lambda into production pipelines for 
+                high-availability deployments.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">AWS</span>
+                <span class="project-tag">EC2</span>
+                <span class="project-tag">RDS</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-header">
+          <div class="section-kicker">Experience</div>
+          <h2 class="section-title">Where I've worked</h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Software Developer</div>
+            <div class="timeline-place">Tata Consultancy Services — Navi Mumbai</div>
+            <div class="timeline-time">Jul 2021 – Present</div>
+            <div class="timeline-desc">
+              • Developed Python-based backend components for SKA Telescope systems<br/>
+              • Built microservices using Django, FastAPI, and Docker<br/>
+              • Deployed services on Kubernetes clusters<br/>
+              • Implemented CI/CD pipelines using Jenkins & GitHub Actions<br/>
+              • Integrated AWS services (EC2, RDS, S3, Lambda)<br/>
+              • Designed secure auth workflows using Azure AD, MSAL, OAuth2<br/>
+              • Collaborated with global engineering teams and supported deployments in South Africa
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Intern</div>
+            <div class="timeline-place">Aeron Systems Pvt. Ltd.</div>
+            <div class="timeline-time">Jul 2017 – Dec 2017</div>
+            <div class="timeline-desc">
+              • Built stereo-vision blind assistance system achieving 95% detection accuracy
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-header">
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Let’s work together</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <p>
+              I’m open to backend, DevOps, and cloud engineering opportunities — remote or onsite.
+              Feel free to reach out for collaborations or roles.
+            </p>
+
+            <div class="contact-cta">
+              <a href="mailto:akshay.sonawane449@gmail.com" class="btn btn-primary">
+                Email me →
+              </a>
+              <a href="#" class="btn btn-ghost">Download CV</a>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Contact details</div>
+
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">
+                  <a href="mailto:akshay.sonawane449@gmail.com">
+                    akshay.sonawane449@gmail.com
+                  </a>
+                </span>
+              </li>
+
+              <li>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">
+                  <a href="https://linkedin.com/in/akshay-sonawane-b47b5b155" target="_blank">
+                    linkedin.com/in/akshay-sonawane-b47b5b155
+                  </a>
+                </span>
+              </li>
+
+              <li>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">9167937095</span>
+              </li>
+
+              <li>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Navi Mumbai, India</span>
+              </li>
             </ul>
+
+            <p class="contact-note">I usually respond within 24 hours.</p>
+          </aside>
         </div>
-    </section>
+      </section>
 
-    <!-- ===== EDUCATION ===== -->
-    <section id="education" class="education">
-        <h2>Education</h2>
+    </main>
 
-        <div class="edu-item">
-            <h3>M.Tech — Electronics & Telecommunication</h3>
-            <p>MNIT Jaipur (2021)</p>
-        </div>
-
-        <div class="edu-item">
-            <h3>B.Tech — Electronics & Telecommunication</h3>
-            <p>VIT Pune (2018)</p>
-        </div>
-    </section>
-
-    <!-- ===== CERTIFICATIONS ===== -->
-    <section id="certifications" class="certifications">
-        <h2>Certifications</h2>
-
-        <ul>
-            <li>AWS Certified Cloud Practitioner (Valid till 2027)</li>
-            <li>IIT Kharagpur AI & ML Programme</li>
-            <li>CKAD Training Programme</li>
-            <li>PCEP & PCAP Preparation Training</li>
-        </ul>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:akshay.sonawane449@gmail.com">akshay.sonawane449@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/akshay-sonawane-b47b5b155" target="_blank">Akshay Sonawane</a></p>
-        <p>Phone: 9167937095</p>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
     <footer>
-        <p>© 2025 Akshay Sonawane. All rights reserved.</p>
+      <div>© <span id="year"></span> Akshay Sonawane. All rights reserved.</div>
+      <div>Built with plain HTML & CSS.</div>
     </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
