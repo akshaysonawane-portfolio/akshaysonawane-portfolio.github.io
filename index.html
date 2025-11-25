@@ -1,1169 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Your Name | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Portfolio of Your Name – Software Developer and DevOps Engineer."
-  />
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --card-bg: #0f172a;
-      --border-subtle: #1f2937;
-      --radius-xl: 18px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --max-width: 1080px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.75),
-        transparent
-      );
-      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
-    }
-
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .logo-dot {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #f9fafb, var(--accent));
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
-    }
-
-    .nav-title {
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--accent), #a855f7);
-      border-radius: 999px;
-      transition: width 0.18s ease-out;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem 1.25rem;
-    }
-
-    section {
-      padding: 4rem 0 0 0;
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 2rem;
-      align-items: center;
-      padding-top: 2.5rem;
-    }
-
-    .hero-intro-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border-radius: 999px;
-      padding: 0.18rem 0.85rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.9);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-intro-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-highlight {
-      background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 32rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 0.65rem 1.5rem;
-      border: 1px solid transparent;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
-        background 0.12s ease-out, border-color 0.12s ease-out;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(to right, var(--accent), #a855f7);
-      border-color: rgba(148, 163, 184, 0.4);
-      color: #0b1120;
-      font-weight: 600;
-      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.55);
-    }
-
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      background: radial-gradient(circle at top left, #0f172a, #020617);
-      transform: translateY(-1px);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .hero-meta-item span {
-      display: block;
-    }
-
-    .hero-meta-label {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-    }
-
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card {
-      border-radius: 26px;
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, #111827, #020617);
-      box-shadow: var(--shadow-soft);
-      padding: 1.4rem 1.6rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-glow {
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.28), transparent 55%),
-        radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.22), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .hero-avatar {
-      width: 70px;
-      height: 70px;
-      border-radius: 999px;
-      border: 2px solid rgba(148, 163, 184, 0.8);
-      background: radial-gradient(circle at 30% 0, #e5e7eb, #4b5563);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #020617;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-
-    .hero-card-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .hero-card-pill {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .hero-card-body {
-      position: relative;
-      z-index: 1;
-      font-size: 0.9rem;
-      color: #d1d5db;
-    }
-
-    .hero-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.75rem;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .hero-card-stats {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: 1.1rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .hero-card-stat-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.7rem;
-      color: #6b7280;
-      margin-bottom: 0.2rem;
-    }
-
-    .hero-card-stat-value {
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    /* Section headings */
-    .section-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .section-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #6b7280;
-      margin-bottom: 0.3rem;
-    }
-
-    .section-title {
-      font-size: 1.45rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 36rem;
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
-
-    .about-text {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .about-text p + p {
-      margin-top: 0.75rem;
-    }
-
-    .about-list {
-      list-style: none;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .about-list li {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 0.4rem;
-      align-items: flex-start;
-    }
-
-    .about-bullet {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      margin-top: 0.35rem;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .about-card {
-      border-radius: var(--radius-xl);
-      background: var(--bg-alt);
-      border: 1px solid var(--border-subtle);
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
-      font-size: 0.85rem;
-    }
-
-    .about-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.8rem;
-    }
-
-    .about-card-item-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-      margin-bottom: 0.15rem;
-    }
-
-    .about-card-item-value {
-      font-size: 0.9rem;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .pill-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-alt);
-      padding: 0.9rem 1rem;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.75);
-      font-size: 0.85rem;
-    }
-
-    .pill-card-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .pill-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .pill-tag {
-      font-size: 0.8rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      color: var(--text-muted);
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .project-card {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-alt);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.8);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-body {
-      padding: 0.95rem 1rem 1rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-    }
-
-    .project-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .project-meta {
-      font-size: 0.78rem;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .project-desc {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.3rem;
-    }
-
-    .project-tag {
-      font-size: 0.78rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(56, 189, 248, 0.5);
-      color: #e0f2fe;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 0.7rem;
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
-    }
-
-    .project-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--accent);
-    }
-
-    /* Experience */
-    .timeline {
-      border-left: 1px solid rgba(55, 65, 81, 0.9);
-      margin-top: 0.6rem;
-      padding-left: 1.3rem;
-    }
-
-    .timeline-item {
-      margin-bottom: 1.1rem;
-      position: relative;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -1.65rem;
-      top: 0.2rem;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
-    }
-
-    .timeline-role {
-      font-size: 0.93rem;
-      font-weight: 600;
-    }
-
-    .timeline-place {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .timeline-time {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-      margin: 0.2rem 0 0.25rem 0;
-    }
-
-    .timeline-desc {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
-
-    .contact-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top left, #0b1120, #020617);
-      box-shadow: var(--shadow-soft);
-      padding: 1.2rem 1.3rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.75rem;
-      padding: 0.45rem 0;
-      border-bottom: 1px dashed rgba(31, 41, 55, 0.9);
-    }
-
-    .contact-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-    }
-
-    .contact-value a {
-      color: var(--accent);
-    }
-
-    .contact-note {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 0.7rem;
-    }
-
-    .contact-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.9rem;
-    }
-
-    footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1.25rem 1.5rem 1.25rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      border-top: 1px solid rgba(31, 41, 55, 0.95);
-    }
-
-    footer a {
-      color: var(--accent);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-right {
-        order: -1;
-      }
-      .hero-card {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      header {
-        backdrop-filter: blur(12px);
-      }
-      .nav {
-        padding-inline: 1rem;
-      }
-      .nav-links {
-        display: none;
-      }
-      main {
-        padding-inline: 1rem;
-      }
-      section {
-        padding-top: 3.2rem;
-      }
-      .hero-intro-tag {
-        font-size: 0.72rem;
-      }
-      .hero-subtitle {
-        font-size: 0.95rem;
-      }
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akshay Sonawane | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page">
+
+    <!-- ===== NAVBAR ===== -->
     <header>
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="logo-dot"></div>
-          <div class="nav-title">Your Name</div>
-        </div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+        <nav class="navbar">
+            <div class="logo">Akshay</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-      <!-- Hero -->
-      <section id="home" class="hero">
-        <div>
-          <div class="hero-intro-tag">
-            <span class="hero-intro-dot"></span>
-            <span>Available for opportunities</span>
-          </div>
-          <h1 class="hero-title">
-            Hi, I'm <span class="hero-highlight">Your Name</span><br />
-            Software Developer & DevOps Engineer
-          </h1>
-          <p class="hero-subtitle">
-            I build reliable backend services, automation pipelines, and cloud-native
-            systems. I like turning complex problems into simple, scalable solutions.
-          </p>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Akshay Sonawane</span></h1>
+            <p>Python Developer • DevOps Engineer • Cloud Enthusiast</p>
+            <p>Navi Mumbai, Maharashtra</p>
+            <a href="#experience" class="btn">View My Work</a>
+        </div>
+    </section>
 
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">
-              View projects →
-            </a>
-            <a href="#contact" class="btn btn-ghost">
-              Contact me
-            </a>
-          </div>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            IT Software Developer with 5 years of experience specializing in Python development and DevOps. 
+            Skilled in building scalable backend systems, automating deployments, and contributing to 
+            cloud-native architectures. Hands-on expertise in Python (Django, FastAPI), Docker, Kubernetes, 
+            CI/CD, and cloud technologies. Proven track record of delivering reliable and secure solutions 
+            in enterprise and large-scale telescope systems.
+        </p>
+    </section>
 
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Specializing in</span>
-              <span>Python · DevOps · Cloud</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Location</span>
-              <span>Your City, Country</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-chip">Open to remote work</span>
-            </div>
-          </div>
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="skills">
+        <h2>Core Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill">Python</div>
+            <div class="skill">Django</div>
+            <div class="skill">FastAPI</div>
+            <div class="skill">SQLAlchemy</div>
+            <div class="skill">REST APIs</div>
+
+            <div class="skill">AWS</div>
+            <div class="skill">Docker</div>
+            <div class="skill">Kubernetes</div>
+
+            <div class="skill">CI/CD (Jenkins, GitHub Actions)</div>
+            <div class="skill">Microservices</div>
+            <div class="skill">Event-driven Architecture</div>
+            <div class="skill">Distributed Systems</div>
+
+            <div class="skill">PostgreSQL</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">TimescaleDB</div>
+
+            <div class="skill">Azure AD</div>
+            <div class="skill">OAuth2</div>
+            <div class="skill">MSAL</div>
+
+            <div class="skill">Agile Development</div>
+            <div class="skill">Code Reviews</div>
+            <div class="skill">Documentation</div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+
+        <p>You can add your projects here. Examples:</p>
+
+        <div class="project-card">
+            <h3>SKA Telescope Control System</h3>
+            <p>Worked on Python-based backend components, authentication flows, 
+               cloud integration, and microservices for large-scale telescope systems.</p>
         </div>
 
-        <div class="hero-right">
-          <div class="hero-card">
-            <div class="hero-card-glow"></div>
-            <div class="hero-card-header">
-              <div style="display: flex; gap: 0.9rem; align-items: center;">
-                <div class="hero-avatar">
-                  <span>YN</span>
-                </div>
-                <div>
-                  <div class="hero-card-title">Your Name</div>
-                  <div class="hero-card-subtitle">
-                    Software Developer · DevOps
-                  </div>
-                </div>
-              </div>
-              <div class="hero-card-pill">Portfolio</div>
-            </div>
-
-            <div class="hero-card-body">
-              <div>
-                Building backend services, APIs, CI/CD pipelines, and infrastructure
-                that just don't break.
-              </div>
-
-              <div class="hero-card-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Django / FastAPI</span>
-                <span class="tag">Docker · Kubernetes</span>
-                <span class="tag">CI/CD · GitHub Actions</span>
-              </div>
-
-              <div class="hero-card-stats">
-                <div>
-                  <div class="hero-card-stat-label">Experience</div>
-                  <div class="hero-card-stat-value">5+ years</div>
-                </div>
-                <div>
-                  <div class="hero-card-stat-label">Focus</div>
-                  <div class="hero-card-stat-value">Backend · DevOps</div>
-                </div>
-                <div>
-                  <div class="hero-card-stat-label">Status</div>
-                  <div class="hero-card-stat-value">Open to work</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="project-card">
+            <h3>CI/CD Automation</h3>
+            <p>Designed automated pipelines using Jenkins & GitHub Actions for reliable 
+               deployment, testing, and environment promotion.</p>
         </div>
-      </section>
+    </section>
 
-      <!-- About -->
-      <section id="about">
-        <div class="section-header">
-          <div class="section-kicker">About</div>
-          <h2 class="section-title">A bit about me</h2>
-          <p class="section-subtitle">
-            Replace this text with your story – where you started, what you work on now,
-            and what kind of problems you enjoy solving.
-          </p>
-        </div>
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="experience">
+        <h2>Professional Experience</h2>
 
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              I’m a software developer with a strong focus on backend engineering and
-              DevOps. Over the past 5 years, I’ve worked on building APIs, automating
-              deployments, and improving reliability of production systems.
-            </p>
-            <p>
-              I care about clean code, observability, and making sure shipping to
-              production is boring and predictable. I enjoy collaborating closely
-              with teams and translating real-world requirements into technical
-              solutions.
-            </p>
-
-            <ul class="about-list">
-              <li>
-                <span class="about-bullet"></span>
-                <span>Comfortable owning features end-to-end – from idea to deploy.</span>
-              </li>
-              <li>
-                <span class="about-bullet"></span>
-                <span>Experience working with cloud platforms (AWS/Azure/GCP).</span>
-              </li>
-              <li>
-                <span class="about-bullet"></span>
-                <span>Enjoy mentoring, documentation, and improving development workflows.</span>
-              </li>
+        <div class="job">
+            <h3>Software Developer — Tata Consultancy Services</h3>
+            <p><strong>July 2021 – Present</strong></p>
+            <ul>
+                <li>Designed backend components for SKA Telescope systems using Python, Django, and FastAPI.</li>
+                <li>Built and deployed containerized microservices using Docker and Kubernetes.</li>
+                <li>Implemented CI/CD pipelines automating builds, tests, and deployments.</li>
+                <li>Developed authentication workflows using MSAL and Azure AD.</li>
+                <li>Integrated AWS services (EC2, RDS, S3, Lambda) into production pipelines.</li>
+                <li>Collaborated with global engineering teams and supported deployments in South Africa.</li>
             </ul>
-          </div>
-
-          <aside class="about-card">
-            <div style="font-size: 0.85rem; color: var(--text-muted);">
-              Snapshot
-            </div>
-            <div class="about-card-grid">
-              <div>
-                <div class="about-card-item-label">Primary stack</div>
-                <div class="about-card-item-value">Python · Docker · CI/CD</div>
-              </div>
-              <div>
-                <div class="about-card-item-label">Role</div>
-                <div class="about-card-item-value">Software Developer</div>
-              </div>
-              <div>
-                <div class="about-card-item-label">Experience</div>
-                <div class="about-card-item-value">5+ years</div>
-              </div>
-              <div>
-                <div class="about-card-item-label">Looking for</div>
-                <div class="about-card-item-value">
-                  Backend / DevOps roles
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills">
-        <div class="section-header">
-          <div class="section-kicker">Skills</div>
-          <h2 class="section-title">Technologies I work with</h2>
-          <p class="section-subtitle">
-            You can customize this list based on your stack. Group things by category
-            so it’s easier to read.
-          </p>
         </div>
 
-        <div class="skills-grid">
-          <div class="pill-card">
-            <div class="pill-card-title">Languages</div>
-            <div class="pill-card-tags">
-              <span class="pill-tag">Python</span>
-              <span class="pill-tag">JavaScript / TypeScript</span>
-              <span class="pill-tag">Bash</span>
-            </div>
-          </div>
-
-          <div class="pill-card">
-            <div class="pill-card-title">Backend & Frameworks</div>
-            <div class="pill-card-tags">
-              <span class="pill-tag">Django</span>
-              <span class="pill-tag">FastAPI</span>
-              <span class="pill-tag">Flask</span>
-              <span class="pill-tag">REST APIs</span>
-            </div>
-          </div>
-
-          <div class="pill-card">
-            <div class="pill-card-title">DevOps & Cloud</div>
-            <div class="pill-card-tags">
-              <span class="pill-tag">Docker</span>
-              <span class="pill-tag">Kubernetes</span>
-              <span class="pill-tag">CI/CD (e.g., GitHub Actions)</span>
-              <span class="pill-tag">AWS / Azure</span>
-            </div>
-          </div>
-
-          <div class="pill-card">
-            <div class="pill-card-title">Tools & Workflow</div>
-            <div class="pill-card-tags">
-              <span class="pill-tag">Git</span>
-              <span class="pill-tag">Linux</span>
-              <span class="pill-tag">Monitoring & Logging</span>
-              <span class="pill-tag">Agile / Scrum</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects">
-        <div class="section-header">
-          <div class="section-kicker">Projects</div>
-          <h2 class="section-title">Selected work</h2>
-          <p class="section-subtitle">
-            Showcase 3–6 projects that best represent your skills. Focus on impact:
-            what problem you solved and how.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-body">
-              <div class="project-meta">Backend · DevOps</div>
-              <h3 class="project-title">Project One – API Platform</h3>
-              <p class="project-desc">
-                Briefly describe the project: what it does, who it’s for, and your role.
-                Mention performance, reliability, or process improvements if relevant.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">FastAPI</span>
-                <span class="project-tag">PostgreSQL</span>
-                <span class="project-tag">Docker</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">
-                  View code →
-                </a>
-                <a href="#" target="_blank" rel="noreferrer">
-                  Live demo
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-body">
-              <div class="project-meta">Automation</div>
-              <h3 class="project-title">Project Two – CI/CD Pipeline</h3>
-              <p class="project-desc">
-                Example: Designed and implemented a CI/CD pipeline that reduced
-                deployment time and made releases more frequent and reliable.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">GitHub Actions</span>
-                <span class="project-tag">Docker</span>
-                <span class="project-tag">Kubernetes</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">
-                  Case study →
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-body">
-              <div class="project-meta">Personal</div>
-              <h3 class="project-title">Project Three – Side Project</h3>
-              <p class="project-desc">
-                Show something you built for fun or learning – it shows initiative and
-                curiosity, even if it’s small.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">API</span>
-                <span class="project-tag">Cloud</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">
-                  View code →
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience">
-        <div class="section-header">
-          <div class="section-kicker">Experience</div>
-          <h2 class="section-title">Where I've worked</h2>
-          <p class="section-subtitle">
-            Add your most relevant roles. Focus on impact, not just responsibilities.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-role">Software Developer</div>
-            <div class="timeline-place">Company Name · City</div>
-            <div class="timeline-time">2020 – Present</div>
-            <div class="timeline-desc">
-              Briefly describe your work: systems you worked on, scale, and
-              improvements you drove (performance, reliability, developer experience, etc.).
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-role">Previous Role</div>
-            <div class="timeline-place">Previous Company · City</div>
-            <div class="timeline-time">2018 – 2020</div>
-            <div class="timeline-desc">
-              Add key achievements or projects, preferably with measurable outcomes
-              (e.g., “reduced deployment time by 40%”).
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <div class="section-header">
-          <div class="section-kicker">Contact</div>
-          <h2 class="section-title">Let’s work together</h2>
-          <p class="section-subtitle">
-            A short call-to-action works well here. Invite people to get in touch about
-            roles, collaborations, or questions.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <div>
-            <p>
-              I’m always open to discussing backend roles, DevOps work, or interesting
-              remote-friendly opportunities. If you think I could be a good fit for your
-              team, feel free to reach out.
-            </p>
-            <div class="contact-cta">
-              <a href="mailto:youremail@example.com" class="btn btn-primary">
-                Email me →
-              </a>
-              <a href="#" class="btn btn-ghost" target="_blank" rel="noreferrer">
-                Download CV
-              </a>
-            </div>
-          </div>
-
-          <aside class="contact-card">
-            <div style="font-size: 0.85rem; color: var(--text-muted);">
-              Contact details
-            </div>
-            <ul class="contact-list">
-              <li>
-                <span class="contact-label">Email</span>
-                <span class="contact-value">
-                  <a href="mailto:youremail@example.com">youremail@example.com</a>
-                </span>
-              </li>
-              <li>
-                <span class="contact-label">GitHub</span>
-                <span class="contact-value">
-                  <a href="#" target="_blank" rel="noreferrer">@your-github</a>
-                </span>
-              </li>
-              <li>
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-value">
-                  <a href="#" target="_blank" rel="noreferrer">linkedin.com/in/your-id</a>
-                </span>
-              </li>
-              <li>
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Your City, Country</span>
-              </li>
+        <div class="job">
+            <h3>Intern — Aeron Systems Pvt. Ltd.</h3>
+            <p><strong>July 2017 – December 2017</strong></p>
+            <ul>
+                <li>Developed stereo-vision–based blind assistance system achieving 95% detection accuracy.</li>
             </ul>
-            <p class="contact-note">
-              Prefer email first contact. I usually respond within 1–2 days.
-            </p>
-          </aside>
         </div>
-      </section>
-    </main>
+    </section>
 
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="education">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+            <h3>M.Tech — Electronics & Telecommunication</h3>
+            <p>MNIT Jaipur (2021)</p>
+        </div>
+
+        <div class="edu-item">
+            <h3>B.Tech — Electronics & Telecommunication</h3>
+            <p>VIT Pune (2018)</p>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+
+        <ul>
+            <li>AWS Certified Cloud Practitioner (Valid till 2027)</li>
+            <li>IIT Kharagpur AI & ML Programme</li>
+            <li>CKAD Training Programme</li>
+            <li>PCEP & PCAP Preparation Training</li>
+        </ul>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:akshay.sonawane449@gmail.com">akshay.sonawane449@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/akshay-sonawane-b47b5b155" target="_blank">Akshay Sonawane</a></p>
+        <p>Phone: 9167937095</p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
-      <div>© <span id="year"></span> Your Name. All rights reserved.</div>
-      <div>Built with plain HTML & CSS.</div>
+        <p>© 2025 Akshay Sonawane. All rights reserved.</p>
     </footer>
-  </div>
 
-  <script>
-    // Auto-update year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
